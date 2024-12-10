@@ -8,7 +8,7 @@ part 'post.g.dart';
 class PostModel with _$PostModel {
 
   const factory PostModel({
-   @JsonKey(name: 'user_id') required  int userId,
+    required  int userId,
     required  int id,
     required  String title,
     required  String body,
