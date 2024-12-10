@@ -20,7 +20,6 @@ PostModel _$PostModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostModel {
-  @JsonKey(name: 'user_id')
   int get userId => throw _privateConstructorUsedError;
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
@@ -37,11 +36,7 @@ abstract class $PostModelCopyWith<$Res> {
   factory $PostModelCopyWith(PostModel value, $Res Function(PostModel) then) =
       _$PostModelCopyWithImpl<$Res, PostModel>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'user_id') int userId,
-      int id,
-      String title,
-      String body});
+  $Res call({int userId, int id, String title, String body});
 }
 
 /// @nodoc
@@ -91,11 +86,7 @@ abstract class _$$PostModelImplCopyWith<$Res>
       __$$PostModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'user_id') int userId,
-      int id,
-      String title,
-      String body});
+  $Res call({int userId, int id, String title, String body});
 }
 
 /// @nodoc
@@ -139,7 +130,7 @@ class __$$PostModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PostModelImpl with DiagnosticableTreeMixin implements _PostModel {
   const _$PostModelImpl(
-      {@JsonKey(name: 'user_id') required this.userId,
+      {required this.userId,
       required this.id,
       required this.title,
       required this.body});
@@ -148,7 +139,6 @@ class _$PostModelImpl with DiagnosticableTreeMixin implements _PostModel {
       _$$PostModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'user_id')
   final int userId;
   @override
   final int id;
@@ -204,7 +194,7 @@ class _$PostModelImpl with DiagnosticableTreeMixin implements _PostModel {
 
 abstract class _PostModel implements PostModel {
   const factory _PostModel(
-      {@JsonKey(name: 'user_id') required final int userId,
+      {required final int userId,
       required final int id,
       required final String title,
       required final String body}) = _$PostModelImpl;
@@ -213,7 +203,6 @@ abstract class _PostModel implements PostModel {
       _$PostModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'user_id')
   int get userId;
   @override
   int get id;

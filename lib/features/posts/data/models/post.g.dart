@@ -8,7 +8,7 @@ part of 'post.dart';
 
 _$PostModelImpl _$$PostModelImplFromJson(Map<String, dynamic> json) =>
     _$PostModelImpl(
-      userId: (json['user_id'] as num).toInt(),
+      userId: (json['userId'] as num).toInt(),
       id: (json['id'] as num).toInt(),
       title: json['title'] as String,
       body: json['body'] as String,
@@ -16,7 +16,7 @@ _$PostModelImpl _$$PostModelImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$PostModelImplToJson(_$PostModelImpl instance) =>
     <String, dynamic>{
-      'user_id': instance.userId,
+      'userId': instance.userId,
       'id': instance.id,
       'title': instance.title,
       'body': instance.body,
