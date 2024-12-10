@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:blocstatemangement/ex/ticker.dart';
+import 'package:blocstatemangement/ex/timer/ticker.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 

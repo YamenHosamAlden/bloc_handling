@@ -1,4 +1,4 @@
-import 'package:blocstatemangement/ex/ticker.dart';
+import 'package:blocstatemangement/ex/timer/ticker.dart';
 import 'package:blocstatemangement/ex/timer/bloc/timer_bloc.dart';
 import 'package:blocstatemangement/ex/timer/view/actions.dart';
 import 'package:blocstatemangement/ex/timer/view/background.dart';

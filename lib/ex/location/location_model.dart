@@ -21,18 +21,7 @@ class PolylineResponse {
     status = json['status'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (geocodedWaypoints != null) {
-      data['geocoded_waypoints'] =
-          geocodedWaypoints!.map((v) => v.toJson()).toList();
-    }
-    if (routes != null) {
-      data['routes'] = routes!.map((v) => v.toJson()).toList();
-    }
-    data['status'] = status;
-    return data;
-  }
+
 }
 
 class GeocodedWaypoints {
@@ -48,13 +37,6 @@ class GeocodedWaypoints {
     types = json['types'].cast<String>();
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['geocoder_status'] = geocoderStatus;
-    data['place_id'] = placeId;
-    data['types'] = types;
-    return data;
-  }
 }
 
 class Routes {
@@ -87,21 +69,7 @@ class Routes {
     summary = json['summary'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (bounds != null) {
-      data['bounds'] = bounds!.toJson();
-    }
-    data['copyrights'] = copyrights;
-    if (legs != null) {
-      data['legs'] = legs!.map((v) => v.toJson()).toList();
-    }
-    if (overviewPolyline != null) {
-      data['overview_polyline'] = overviewPolyline!.toJson();
-    }
-    data['summary'] = summary;
-    return data;
-  }
+ 
 }
 
 class Bounds {
@@ -119,16 +87,7 @@ class Bounds {
         : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (northeast != null) {
-      data['northeast'] = northeast!.toJson();
-    }
-    if (southwest != null) {
-      data['southwest'] = southwest!.toJson();
-    }
-    return data;
-  }
+
 }
 
 class Northeast {
@@ -142,12 +101,7 @@ class Northeast {
     lng = json['lng'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['lat'] = lat;
-    data['lng'] = lng;
-    return data;
-  }
+
 }
 
 class Legs {
@@ -191,27 +145,7 @@ class Legs {
     }
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (distance != null) {
-      data['distance'] = distance!.toJson();
-    }
-    if (duration != null) {
-      data['duration'] = duration!.toJson();
-    }
-    data['end_address'] = endAddress;
-    if (endLocation != null) {
-      data['end_location'] = endLocation!.toJson();
-    }
-    data['start_address'] = startAddress;
-    if (startLocation != null) {
-      data['start_location'] = startLocation!.toJson();
-    }
-    if (steps != null) {
-      data['steps'] = steps!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
+ 
 }
 
 class Distance {
@@ -225,12 +159,7 @@ class Distance {
     value = json['value'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['text'] = text;
-    data['value'] = value;
-    return data;
-  }
+ 
 }
 
 class Steps {
@@ -274,28 +203,6 @@ class Steps {
     maneuver = json['maneuver'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (distance != null) {
-      data['distance'] = distance!.toJson();
-    }
-    if (duration != null) {
-      data['duration'] = duration!.toJson();
-    }
-    if (endLocation != null) {
-      data['end_location'] = endLocation!.toJson();
-    }
-    data['html_instructions'] = htmlInstructions;
-    if (polyline != null) {
-      data['polyline'] = polyline!.toJson();
-    }
-    if (startLocation != null) {
-      data['start_location'] = startLocation!.toJson();
-    }
-    data['travel_mode'] = travelMode;
-    data['maneuver'] = maneuver;
-    return data;
-  }
 }
 
 class PolylineModel {
@@ -307,9 +214,5 @@ class PolylineModel {
     points = json['points'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['points'] = points;
-    return data;
-  }
+
 }

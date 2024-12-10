@@ -19,7 +19,7 @@ class PostView extends StatelessWidget {
         //   color: Colors.amber,
         // )),
         // errorWidget: () => Center(
-        //   child: Text(postBloc.state.errorMessage!),
+        //   child: Text(""),
         // ),
         childBulder: (context, state) => ListView.builder(
           itemCount: state.posts.length,
