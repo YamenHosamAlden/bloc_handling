@@ -8,7 +8,7 @@ part 'post.g.dart';
 class PostModel with _$PostModel {
 
   const factory PostModel({
-    required  int userId,
+   required  int userId,
     required  int id,
     required  String title,
     required  String body,
@@ -17,5 +17,5 @@ class PostModel with _$PostModel {
   factory PostModel.fromJson(Map<String, dynamic> json) =>
       _$PostModelFromJson(json);
 
-      
+     
 }
