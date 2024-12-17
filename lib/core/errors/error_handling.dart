@@ -1,6 +1,6 @@
 // import 'package:dio/dio.dart';
 
-import 'package:blocstatemangement/core/errors/failures.dart';
+import 'package:statemanagement/core/errors/failures.dart';
 import 'package:dio/dio.dart';
 
 String failureHandlingMessage(Failure failure) {

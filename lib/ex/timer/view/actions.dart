@@ -1,4 +1,4 @@
-import 'package:blocstatemangement/ex/timer/bloc/timer_bloc.dart';
+import 'package:statemanagement/ex/timer/bloc/timer_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

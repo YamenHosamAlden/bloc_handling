@@ -1,7 +1,7 @@
 // import 'dart:convert';
 
-import 'package:blocstatemangement/core/errors/exceptions.dart';
-import 'package:blocstatemangement/features/posts/data/models/post.dart';
+import 'package:statemanagement/core/errors/exceptions.dart';
+import 'package:statemanagement/features/posts/data/models/post.dart';
 import 'package:dio/dio.dart' as d;
 // import 'package:http/http.dart' as http;
 
@@ -34,7 +34,9 @@ class PostsRemoteDataSourceImpl implements PostsRemoteDataSource {
         await dio.get('https://jsonplaceholder.typicode.com/posts');
     if (response.statusCode == 200) {
       return (response.data as List)
-          .map((post) => PostModel.fromJson(post))
+          .map((post) {
+            return PostModel.fromJson(post);
+          })
           .toList();
     }
     throw (ServerException());

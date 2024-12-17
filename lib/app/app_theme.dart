@@ -1,4 +1,4 @@
-import 'package:blocstatemangement/core/constans/app_colors.dart';
+import 'package:statemanagement/core/constans/app_colors.dart';
 import 'package:flutter/material.dart';
 
 enum AppTheme {
@@ -10,7 +10,7 @@ final Map<AppTheme, ThemeData> appThemeData = {
   AppTheme.lightTheme: ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
-    colorScheme:  ColorScheme.fromSeed(seedColor: AppColors.martiniqueColor),
+    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.martiniqueColor),
     primaryColor: AppColors.eucalyptusColor,
     scaffoldBackgroundColor: AppColors.alabasterColor,
     primaryColorLight: AppColors.martiniqueColor,
@@ -76,8 +76,6 @@ final Map<AppTheme, ThemeData> appThemeData = {
       childrenPadding: const EdgeInsets.all(5),
     ),
   ),
-
-
   AppTheme.darkTheme: ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,

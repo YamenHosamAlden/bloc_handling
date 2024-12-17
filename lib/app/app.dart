@@ -1,5 +1,5 @@
-import 'package:blocstatemangement/app/app_theme.dart';
-import 'package:blocstatemangement/features/posts/presentation/view/post_page.dart';
+import 'package:statemanagement/app/app_theme.dart';
+import 'package:statemanagement/features/posts/presentation/view/post_page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:blocstatemangement/core/errors/error_handling.dart';
-import 'package:blocstatemangement/core/helper/bloc_helper/base_state_bloc.dart';
-import 'package:blocstatemangement/features/posts/data/models/post.dart';
-import 'package:blocstatemangement/features/posts/domain/repositories/posts_repository.dart';
+import 'package:statemanagement/core/errors/error_handling.dart';
+import 'package:statemanagement/core/base_bloc/base_state_bloc.dart';
+import 'package:statemanagement/features/posts/data/models/post.dart';
+import 'package:statemanagement/features/posts/domain/repositories/posts_repository.dart';
 import 'package:equatable/equatable.dart';
 
 part 'posts_event.dart';

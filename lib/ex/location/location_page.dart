@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:blocstatemangement/ex/location/location_model.dart';
+import 'package:statemanagement/ex/location/location_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -194,7 +194,6 @@ class _LocationPageState extends State<LocationPage> {
   String totalTime = "";
 
   String apiKey = "api key";
-
 
   PolylineResponse polylineResponse = PolylineResponse();
 

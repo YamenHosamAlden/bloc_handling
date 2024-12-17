@@ -1,4 +1,4 @@
-import 'package:blocstatemangement/core/helper/bloc_helper/base_state_bloc.dart';
+import 'package:statemanagement/core/base_bloc/base_state_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
