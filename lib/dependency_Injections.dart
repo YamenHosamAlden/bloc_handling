@@ -2,6 +2,7 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 import 'package:statemanagement/core/database/data_base_schema.dart';
 import 'package:statemanagement/core/database/local_database.dart';
 import 'package:statemanagement/core/helper/network/network.dart';
+import 'package:statemanagement/features/base_page/presentation/nav_bloc/nav_bloc.dart';
 import 'package:statemanagement/features/posts/data/datasources/posts_local_data_source.dart';
 import 'package:statemanagement/features/posts/data/datasources/posts_remote_data_source.dart';
 import 'package:statemanagement/features/posts/data/repositories/posts_repository_impl.dart';
@@ -14,10 +15,22 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 GetIt di = GetIt.instance;
 
 Future<void> init() async {
-  LocalDatabase localDatabase = LocalDatabase(
-      databaseName: "post", version: 1, databaseSchema: DatabaseSchema.schema, );
-   await localDatabase.databaseInitializer;
-  di.registerLazySingleton<LocalDatabase>(() => localDatabase);
+  // First way to initialize local database
+  // LocalDatabase localDatabase = LocalDatabase(
+  //   databaseName: "local_data_base",
+  //   version: 1,
+  //   databaseSchema: DatabaseSchema.schema,
+  // );
+  // await localDatabase.databaseInitializer;
+  // di.registerLazySingleton<LocalDatabase>(() => localDatabase);
+
+  // Second way to initialize local database
+  di.registerSingletonAsync<LocalDatabase>(() async =>  LocalDatabase(
+        databaseName: "local_data_base",
+        version: 1,
+        databaseSchema: DatabaseSchema.sqlQueries,
+      )..databaseInitializer);
+
   di.registerLazySingleton<InternetConnection>(() => InternetConnection());
 
   di.registerLazySingleton<NetworkInfo>(
@@ -41,6 +54,7 @@ Future<void> init() async {
       //     return !args.isResponse || !args.hasUint8ListData;
       //   }
     )));
+
   initLocalDataSource();
   initRemoteDataSource();
   initRepositories();
@@ -72,6 +86,7 @@ void initRepositories() {
 }
 
 void initBlocs() {
+  di.registerFactory<NavBloc>(() => NavBloc());
   di.registerFactory<PostsBloc>(
       () => PostsBloc(postsRepository: di<PostsRepository>()));
 }

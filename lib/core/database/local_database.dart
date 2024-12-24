@@ -10,11 +10,11 @@ class LocalDatabase {
     this.onUpgrade,
     this.onDowngrade,
     this.onOpen,
-  }) {
+  })  {
     databaseInitializer =
         _initializeDatabase(databaseName, version, databaseSchema);
   }
-  late final Future<void> databaseInitializer;
+  late final Future<Database> databaseInitializer;
   late final Database _database;
 
   FutureOr<void> Function(Database, int, int)? onUpgrade;
@@ -22,7 +22,7 @@ class LocalDatabase {
   FutureOr<void> Function(Database)? onOpen;
   Database get database => _database;
 
-  Future<void> _initializeDatabase(String databaseName, int version,
+  Future<Database> _initializeDatabase(String databaseName, int version,
           List<String> databaseSchema) async =>
       openDatabase(
         join(await getDatabasesPath(), databaseName),

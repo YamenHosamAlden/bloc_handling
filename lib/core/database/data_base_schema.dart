@@ -1,6 +1,6 @@
 class DatabaseSchema {
-  static const List<String> schema = [
+  static const List<String> sqlQueries = [
     "CREATE TABLE $post(id INTEGER PRIMARY KEY AUTOINCREMENT,userId INTEGER,title TEXT,body TEXT)",
   ];
-  static const String post = "Post";
+  static const String post = "post";
 }
