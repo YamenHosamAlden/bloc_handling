@@ -1,20 +1,28 @@
-import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
-import 'package:statemanagement/core/database/data_base_schema.dart';
-import 'package:statemanagement/core/database/local_database.dart';
-import 'package:statemanagement/core/helper/network/network.dart';
-import 'package:statemanagement/features/base_page/presentation/nav_bloc/nav_bloc.dart';
-import 'package:statemanagement/features/posts/data/datasources/posts_local_data_source.dart';
-import 'package:statemanagement/features/posts/data/datasources/posts_remote_data_source.dart';
-import 'package:statemanagement/features/posts/data/repositories/posts_repository_impl.dart';
-import 'package:statemanagement/features/posts/domain/repositories/posts_repository.dart';
-import 'package:statemanagement/features/posts/presentation/bloc/posts_bloc/posts_bloc.dart';
-import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:myproject/app/data/datasources/user_preferences_local_data_source.dart';
+import 'package:myproject/app/data/repositories/user_preferences_repository_impl.dart';
+import 'package:myproject/app/domain/repositories/user_preferences_repository.dart';
+import 'package:myproject/app/presentation/app_bloc/app_bloc.dart';
+import 'package:myproject/core/database/data_base_schema.dart';
+import 'package:myproject/core/database/local_database.dart';
+import 'package:myproject/core/helper/network/network_info.dart';
+import 'package:myproject/features/posts/data/datasources/posts_local_data_source.dart';
+import 'package:myproject/features/posts/data/datasources/posts_remote_data_source.dart';
+import 'package:myproject/features/posts/data/repositories/posts_repository_impl.dart';
+import 'package:myproject/features/posts/domain/repositories/posts_repository.dart';
+import 'package:myproject/features/posts/presentation/bloc/posts_bloc/posts_bloc.dart';
+import 'package:dio/dio.dart';
+
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 GetIt di = GetIt.instance;
 
 Future<void> init() async {
+  final sharedPreferences = await SharedPreferences.getInstance();
+  di.registerSingleton<SharedPreferences>(sharedPreferences);
+
   // First way to initialize local database
   // LocalDatabase localDatabase = LocalDatabase(
   //   databaseName: "local_data_base",
@@ -25,11 +33,13 @@ Future<void> init() async {
   // di.registerLazySingleton<LocalDatabase>(() => localDatabase);
 
   // Second way to initialize local database
-  di.registerSingletonAsync<LocalDatabase>(() async =>  LocalDatabase(
-        databaseName: "local_data_base",
-        version: 1,
-        databaseSchema: DatabaseSchema.sqlQueries,
-      )..databaseInitializer);
+  di.registerSingletonAsync<LocalDatabase>(
+    () async => LocalDatabase(
+      databaseName: "local_data_base",
+      version: 1,
+      databaseSchema: DatabaseSchema.sqlQueries,
+    )..databaseInitializer,
+  );
 
   di.registerLazySingleton<InternetConnection>(() => InternetConnection());
 
@@ -68,6 +78,11 @@ void initRemoteDataSource() {
 }
 
 void initLocalDataSource() {
+  di.registerLazySingleton<UserPreferencesLocalDataSource>(
+    () => UserPreferencesLocalDataSourceImpl(
+      sharedPreferences: di<SharedPreferences>(),
+    ),
+  );
   di.registerLazySingleton<PostsLocalDataSource>(
     () => PostsLocalDataSourceImpl(
       localDatabase: di<LocalDatabase>(),
@@ -83,10 +98,24 @@ void initRepositories() {
       postsRemoteDataSource: di<PostsRemoteDataSource>(),
     ),
   );
+
+  di.registerLazySingleton<UserPreferencesRepository>(
+    () => UserPreferencesRepositoryImpl(
+      userPreferencesLocalDataSource: di<UserPreferencesLocalDataSource>(),
+    ),
+  );
 }
 
 void initBlocs() {
-  di.registerFactory<NavBloc>(() => NavBloc());
+  di.registerFactory<AppBloc>(
+    () => AppBloc(
+      userPreferencesRepository: di<UserPreferencesRepository>(),
+    ),
+  );
+
   di.registerFactory<PostsBloc>(
-      () => PostsBloc(postsRepository: di<PostsRepository>()));
+    () => PostsBloc(
+      postsRepository: di<PostsRepository>(),
+    ),
+  );
 }

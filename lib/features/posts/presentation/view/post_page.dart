@@ -1,6 +1,6 @@
-import 'package:statemanagement/dependency_Injections.dart';
-import 'package:statemanagement/features/posts/presentation/bloc/posts_bloc/posts_bloc.dart';
-import 'package:statemanagement/features/posts/presentation/view/post_view.dart';
+import 'package:myproject/dependency_injections.dart';
+import 'package:myproject/features/posts/presentation/bloc/posts_bloc/posts_bloc.dart';
+import 'package:myproject/features/posts/presentation/view/post_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

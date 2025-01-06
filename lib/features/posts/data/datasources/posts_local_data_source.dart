@@ -1,6 +1,6 @@
 import 'package:sqflite/sqflite.dart';
-import 'package:statemanagement/core/database/local_database.dart';
-import 'package:statemanagement/features/posts/data/models/post.dart';
+import 'package:myproject/core/database/local_database.dart';
+import 'package:myproject/features/posts/data/models/post.dart';
 
 abstract interface class PostsLocalDataSource {
   Future<int> insertPost(PostModel post);

@@ -1,6 +1,6 @@
-import 'package:statemanagement/core/base_bloc/base_state_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:myproject/core/base_bloc/base_state_bloc.dart';
 
 class BlocFutureBuilder<B extends StateStreamable<S>, S extends BaseBlocState>
     extends StatelessWidget {

@@ -1,7 +1,7 @@
-import 'package:statemanagement/ex/counter/bloc/counter_bloc.dart';
-import 'package:statemanagement/ex/counter/cubit/counter_cubit.dart';
-import 'package:statemanagement/ex/counter/view/counter_view_with_bloc.dart';
-import 'package:statemanagement/ex/counter/view/counter_view_with_cubit.dart';
+import 'package:myproject/ex/counter/bloc/counter_bloc.dart';
+import 'package:myproject/ex/counter/cubit/counter_cubit.dart';
+import 'package:myproject/ex/counter/view/counter_view_with_bloc.dart';
+import 'package:myproject/ex/counter/view/counter_view_with_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

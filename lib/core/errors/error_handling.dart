@@ -1,6 +1,5 @@
-// import 'package:dio/dio.dart';
 
-import 'package:statemanagement/core/errors/failures.dart';
+import 'package:myproject/core/errors/failures.dart';
 import 'package:dio/dio.dart';
 
 String failureHandlingMessage(Failure failure) {
@@ -11,13 +10,13 @@ String failureHandlingMessage(Failure failure) {
       return 'No internet connection, Try again';
 
     case DioFailure():
-      return getDioErrorMessage(failure.error);
+      return dioErrorMessage(failure.error);
     default:
       return 'Unknown Error, Try again';
   }
 }
 
-String getDioErrorMessage(DioException error) {
+String dioErrorMessage(DioException error) {
   switch (error.type) {
     case DioExceptionType.cancel:
       return 'Not found resource';
