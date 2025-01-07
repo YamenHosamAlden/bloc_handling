@@ -7,9 +7,7 @@ StatefulShellBranch homeShellBranch = StatefulShellBranch(
     GoRoute(
       name: RouteName.homeRouteName,
       path: RoutePath.homeRoutePath,
-      builder: (context, state) => HomeScreen(
-        title: state.extra as String,
-      ),
+      builder: (context, state) => const HomeScreen(),
     ),
   ],
 );

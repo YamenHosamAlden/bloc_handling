@@ -11,8 +11,7 @@ class LoginScreen extends StatelessWidget {
       body: Center(
         child: TextButton(
           onPressed: () {
-            context.pushReplacementNamed(RouteName.homeRouteName,
-                extra: "Home");
+            context.pushReplacementNamed(RouteName.homeRouteName);
           },
           child: const Text("Login"),
         ),

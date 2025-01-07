@@ -19,7 +19,7 @@ class TestFormFiald extends StatelessWidget {
             children: [
               CustomForm(
                 onChanged: (value) {
-                  print("what is the value $value");
+                  // print("what is the value $value");
                 },
                 validatorText: (value) {
                   if (value == null) {
@@ -32,7 +32,7 @@ class TestFormFiald extends StatelessWidget {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {}
                 },
-                child: Text("Click me"),
+                child:const  Text("Click me"),
               )
             ],
           )),

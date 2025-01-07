@@ -32,7 +32,7 @@ class TableExample extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: Colors.amber.withOpacity(0.4),
                         borderRadius: BorderRadius.circular(30)),
-                    child: TableRowInkWell(onTap: () {}, child: Text("Wed"))),
+                    child: TableRowInkWell(onTap: () {}, child:const  Text("Wed"))),
                 Container(
                   height: 64,
                   color: Colors.blue,

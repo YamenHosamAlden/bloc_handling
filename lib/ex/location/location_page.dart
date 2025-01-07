@@ -132,7 +132,7 @@ class _LocationPageState extends State<LocationPage> {
                     mapType: MapType.normal,
                     onTap: (position) {
                       markers.add(
-                          Marker(markerId: MarkerId('2'), position: position));
+                          Marker(markerId: const MarkerId('2'), position: position));
 
                       drawPolyline(origin: latLng, destination: position);
                     },
@@ -206,9 +206,9 @@ class _LocationPageState extends State<LocationPage> {
           "https://maps.googleapis.com/maps/api/directions/json?key=$apiKey&units=metric&origin=${origin.latitude},${origin.longitude}&destination=${destination.latitude},${destination.longitude}&mode=driving"));
 
       polylineResponse = PolylineResponse.fromJson(jsonDecode(response.body));
-      print("what is the ${response.body}");
+      // print("what is the ${response.body}");
     } catch (e) {
-      print("what is the e $e");
+      // print("what is the e $e");
     }
 
     totalDistance = polylineResponse.routes![0].legs![0].distance!.text!;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myproject/core/constans/app_colors.dart';
 
 class NavBarWidget extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
@@ -9,7 +8,7 @@ class NavBarWidget extends StatelessWidget {
   void _onDestinationSelected(int index) {
     navigationShell.goBranch(
       index,
-      initialLocation: index == navigationShell.currentIndex,
+      initialLocation: navigationShell.currentIndex == index,
     );
   }
 
@@ -22,14 +21,15 @@ class NavBarWidget extends StatelessWidget {
           label: 'Home',
         ),
         const NavigationDestination(
+          icon: Icon(Icons.category),
+          label: 'Categories',
+        ),
+        const NavigationDestination(
           icon: Icon(Icons.search),
           label: 'Search',
         ),
         NavigationDestination(
           icon: Badge.count(
-            backgroundColor: AppColors.mojoColor,
-            textColor: Colors.white,
-            textStyle: Theme.of(context).textTheme.bodySmall,
             count: 0,
             child: const Icon(
               Icons.shopping_cart,

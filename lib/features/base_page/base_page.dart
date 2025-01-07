@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myproject/core/widgets/dialogs/confirm_dialog.dart';
-import 'package:myproject/features/base_page/view/widgets/nav_bar.dart';
+import 'package:myproject/features/base_page/widgets/nav_bar.dart';
 
 class BasePage extends StatelessWidget {
   final StatefulNavigationShell navigationShell;

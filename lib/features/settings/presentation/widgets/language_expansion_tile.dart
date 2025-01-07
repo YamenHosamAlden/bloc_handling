@@ -16,14 +16,14 @@ class LanguageExpansionTile extends StatelessWidget {
           title: const Text('Language'),
           children: [
             RadioListTile<Locale>(
-                title: const Text("en"),
+                title: const Text("English"),
                 value: const Locale('en'),
                 groupValue: locale,
                 onChanged: (value) {
                   appBloc.add(AppEvent.changeLanguage(locale: value!));
                 }),
             RadioListTile<Locale>(
-                title: const Text("ar"),
+                title: const Text("Arabic"),
                 value: const Locale('ar'),
                 groupValue: locale,
                 onChanged: (value) {
