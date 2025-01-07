@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:myproject/app/data/datasources/user_preferences_local_data_source.dart';
 import 'package:myproject/app/domain/repositories/user_preferences_repository.dart';
@@ -38,10 +37,16 @@ class UserPreferencesRepositoryImpl implements UserPreferencesRepository {
       return ThemeMode.system;
     }
   }
-  
+
   @override
-  Future<void> changeLanguage() {
-    // TODO: implement changeLanguage
-    throw UnimplementedError();
+  Future<void> changeLanguage(Locale locale) async {
+    if (locale.languageCode == 'en') {
+      await userPreferencesLocalDataSource.removeAppLanguage();
+    } else if (locale.languageCode == 'ar') {
+      await userPreferencesLocalDataSource.saveAppLanguage('ar');
+    }
   }
+
+  @override
+  Locale get getLanguage => Locale(userPreferencesLocalDataSource.appLanguage);
 }

@@ -11,30 +11,23 @@ class LanguageExpansionTile extends StatelessWidget {
     return BlocBuilder<AppBloc, AppState>(
       bloc: appBloc,
       builder: (context, state) {
-        ThemeMode themeMode = state.themeMode;
+        Locale locale = state.locale;
         return ExpansionTile(
-          title: const Text('Theme'),
+          title: const Text('Language'),
           children: [
-            RadioListTile<ThemeMode>(
-                title: const Text("System"),
-                value: ThemeMode.system,
-                groupValue: themeMode,
+            RadioListTile<Locale>(
+                title: const Text("en"),
+                value: const Locale('en'),
+                groupValue: locale,
                 onChanged: (value) {
-                  appBloc.add(AppEvent.changeTheme(themeMode: value!));
+                  appBloc.add(AppEvent.changeLanguage(locale: value!));
                 }),
-            RadioListTile<ThemeMode>(
-                title: const Text("Dark"),
-                value: ThemeMode.dark,
-                groupValue: themeMode,
+            RadioListTile<Locale>(
+                title: const Text("ar"),
+                value: const Locale('ar'),
+                groupValue: locale,
                 onChanged: (value) {
-                  appBloc.add(AppEvent.changeTheme(themeMode: value!));
-                }),
-            RadioListTile<ThemeMode>(
-                title: const Text("Light"),
-                value: ThemeMode.light,
-                groupValue: themeMode,
-                onChanged: (value) {
-                  appBloc.add(AppEvent.changeTheme(themeMode: value!));
+                  appBloc.add(AppEvent.changeLanguage(locale: value!));
                 }),
           ],
         );

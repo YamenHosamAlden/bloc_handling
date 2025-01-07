@@ -1,4 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:myproject/app/lang/app_localization.dart';
 import 'package:myproject/app/presentation/app_bloc/app_bloc.dart';
 import 'package:myproject/app/routers/routers.dart';
 import 'package:myproject/app/theme/app_theme.dart';
@@ -22,13 +24,26 @@ class AppView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AppBloc, AppState>(
       builder: (context, state) {
-        return MaterialApp.router(
-          routerConfig: appRouter,
-          title: '',
-          themeMode: state.themeMode,
-          theme: AppTheme.theme[AppThemeData.lightTheme],
-          darkTheme: AppTheme.theme[AppThemeData.darkTheme],
-       
+        return GestureDetector(
+          onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
+          child: MaterialApp.router(
+            routerConfig: appRouter,
+            title: '',
+            themeMode: state.themeMode,
+            theme: AppTheme.theme[AppThemeData.lightTheme],
+            darkTheme: AppTheme.theme[AppThemeData.darkTheme],
+            locale: state.locale,
+            supportedLocales: const [
+              Locale('en', 'US'),
+              Locale('ar', 'AR'),
+            ],
+            localizationsDelegates: const [
+              Applocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+          ),
         );
       },
     );

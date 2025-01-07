@@ -8,6 +8,9 @@ abstract interface class UserPreferencesLocalDataSource {
   Future<void> saveDarkMode();
   Future<void> removeDarkTheme();
   bool get isDarkMode;
+  Future<void> saveAppLanguage(String languageCode);
+  Future<void> removeAppLanguage();
+  String get appLanguage;
 }
 
 class UserPreferencesLocalDataSourceImpl
@@ -37,4 +40,15 @@ class UserPreferencesLocalDataSourceImpl
 
   @override
   bool get isDarkMode => sharedPreferences.getBool(AppString.darkMode) ?? false;
+
+  @override
+  Future<void> saveAppLanguage(String languageCode) =>
+      sharedPreferences.setString(AppString.language, languageCode);
+  @override
+  Future<void> removeAppLanguage() async =>
+      await sharedPreferences.remove(AppString.language);
+
+  @override
+  String get appLanguage =>
+      sharedPreferences.getString(AppString.language) ?? 'en';
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:myproject/features/settings/presentation/widgets/language_expansion_tile.dart';
+
+import 'package:myproject/features/settings/presentation/widgets/theme_expansion_tile.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -11,6 +12,7 @@ class SettingsScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         LanguageExpansionTile(),
+        ThemeExpansionTile(),
       ],
     );
   }

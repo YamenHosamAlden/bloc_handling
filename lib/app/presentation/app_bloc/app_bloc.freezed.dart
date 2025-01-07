@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AppEvent {
-  ThemeMode get themeMode => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ThemeMode themeMode) changeTheme,
+    required TResult Function(Locale locale) changeLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ThemeMode themeMode)? changeTheme,
+    TResult? Function(Locale locale)? changeLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ThemeMode themeMode)? changeTheme,
+    TResult Function(Locale locale)? changeLanguage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangeTheme value) changeTheme,
+    required TResult Function(_ChangeLanguage value) changeLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ChangeTheme value)? changeTheme,
+    TResult? Function(_ChangeLanguage value)? changeLanguage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeTheme value)? changeTheme,
+    TResult Function(_ChangeLanguage value)? changeLanguage,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $AppEventCopyWith<AppEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -59,8 +60,6 @@ mixin _$AppEvent {
 abstract class $AppEventCopyWith<$Res> {
   factory $AppEventCopyWith(AppEvent value, $Res Function(AppEvent) then) =
       _$AppEventCopyWithImpl<$Res, AppEvent>;
-  @useResult
-  $Res call({ThemeMode themeMode});
 }
 
 /// @nodoc
@@ -72,28 +71,13 @@ class _$AppEventCopyWithImpl<$Res, $Val extends AppEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? themeMode = null,
-  }) {
-    return _then(_value.copyWith(
-      themeMode: null == themeMode
-          ? _value.themeMode
-          : themeMode // ignore: cast_nullable_to_non_nullable
-              as ThemeMode,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$ChangeThemeImplCopyWith<$Res>
-    implements $AppEventCopyWith<$Res> {
+abstract class _$$ChangeThemeImplCopyWith<$Res> {
   factory _$$ChangeThemeImplCopyWith(
           _$ChangeThemeImpl value, $Res Function(_$ChangeThemeImpl) then) =
       __$$ChangeThemeImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({ThemeMode themeMode});
 }
@@ -155,6 +139,7 @@ class _$ChangeThemeImpl implements _ChangeTheme {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ThemeMode themeMode) changeTheme,
+    required TResult Function(Locale locale) changeLanguage,
   }) {
     return changeTheme(themeMode);
   }
@@ -163,6 +148,7 @@ class _$ChangeThemeImpl implements _ChangeTheme {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ThemeMode themeMode)? changeTheme,
+    TResult? Function(Locale locale)? changeLanguage,
   }) {
     return changeTheme?.call(themeMode);
   }
@@ -171,6 +157,7 @@ class _$ChangeThemeImpl implements _ChangeTheme {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ThemeMode themeMode)? changeTheme,
+    TResult Function(Locale locale)? changeLanguage,
     required TResult orElse(),
   }) {
     if (changeTheme != null) {
@@ -183,6 +170,7 @@ class _$ChangeThemeImpl implements _ChangeTheme {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangeTheme value) changeTheme,
+    required TResult Function(_ChangeLanguage value) changeLanguage,
   }) {
     return changeTheme(this);
   }
@@ -191,6 +179,7 @@ class _$ChangeThemeImpl implements _ChangeTheme {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ChangeTheme value)? changeTheme,
+    TResult? Function(_ChangeLanguage value)? changeLanguage,
   }) {
     return changeTheme?.call(this);
   }
@@ -199,6 +188,7 @@ class _$ChangeThemeImpl implements _ChangeTheme {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeTheme value)? changeTheme,
+    TResult Function(_ChangeLanguage value)? changeLanguage,
     required TResult orElse(),
   }) {
     if (changeTheme != null) {
@@ -212,17 +202,151 @@ abstract class _ChangeTheme implements AppEvent {
   const factory _ChangeTheme({required final ThemeMode themeMode}) =
       _$ChangeThemeImpl;
 
-  @override
   ThemeMode get themeMode;
-  @override
   @JsonKey(ignore: true)
   _$$ChangeThemeImplCopyWith<_$ChangeThemeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
+abstract class _$$ChangeLanguageImplCopyWith<$Res> {
+  factory _$$ChangeLanguageImplCopyWith(_$ChangeLanguageImpl value,
+          $Res Function(_$ChangeLanguageImpl) then) =
+      __$$ChangeLanguageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Locale locale});
+}
+
+/// @nodoc
+class __$$ChangeLanguageImplCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$ChangeLanguageImpl>
+    implements _$$ChangeLanguageImplCopyWith<$Res> {
+  __$$ChangeLanguageImplCopyWithImpl(
+      _$ChangeLanguageImpl _value, $Res Function(_$ChangeLanguageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? locale = null,
+  }) {
+    return _then(_$ChangeLanguageImpl(
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as Locale,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeLanguageImpl implements _ChangeLanguage {
+  const _$ChangeLanguageImpl({required this.locale});
+
+  @override
+  final Locale locale;
+
+  @override
+  String toString() {
+    return 'AppEvent.changeLanguage(locale: $locale)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeLanguageImpl &&
+            (identical(other.locale, locale) || other.locale == locale));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, locale);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeLanguageImplCopyWith<_$ChangeLanguageImpl> get copyWith =>
+      __$$ChangeLanguageImplCopyWithImpl<_$ChangeLanguageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ThemeMode themeMode) changeTheme,
+    required TResult Function(Locale locale) changeLanguage,
+  }) {
+    return changeLanguage(locale);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ThemeMode themeMode)? changeTheme,
+    TResult? Function(Locale locale)? changeLanguage,
+  }) {
+    return changeLanguage?.call(locale);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ThemeMode themeMode)? changeTheme,
+    TResult Function(Locale locale)? changeLanguage,
+    required TResult orElse(),
+  }) {
+    if (changeLanguage != null) {
+      return changeLanguage(locale);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeTheme value) changeTheme,
+    required TResult Function(_ChangeLanguage value) changeLanguage,
+  }) {
+    return changeLanguage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeTheme value)? changeTheme,
+    TResult? Function(_ChangeLanguage value)? changeLanguage,
+  }) {
+    return changeLanguage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeTheme value)? changeTheme,
+    TResult Function(_ChangeLanguage value)? changeLanguage,
+    required TResult orElse(),
+  }) {
+    if (changeLanguage != null) {
+      return changeLanguage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeLanguage implements AppEvent {
+  const factory _ChangeLanguage({required final Locale locale}) =
+      _$ChangeLanguageImpl;
+
+  Locale get locale;
+  @JsonKey(ignore: true)
+  _$$ChangeLanguageImplCopyWith<_$ChangeLanguageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AppState {
   ThemeMode get themeMode => throw _privateConstructorUsedError;
+  Locale get locale => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -234,7 +358,7 @@ abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
-  $Res call({ThemeMode themeMode});
+  $Res call({ThemeMode themeMode, Locale locale});
 }
 
 /// @nodoc
@@ -251,12 +375,17 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   @override
   $Res call({
     Object? themeMode = null,
+    Object? locale = null,
   }) {
     return _then(_value.copyWith(
       themeMode: null == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as ThemeMode,
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as Locale,
     ) as $Val);
   }
 }
@@ -269,7 +398,7 @@ abstract class _$$AppStateImplCopyWith<$Res>
       __$$AppStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ThemeMode themeMode});
+  $Res call({ThemeMode themeMode, Locale locale});
 }
 
 /// @nodoc
@@ -284,12 +413,17 @@ class __$$AppStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? themeMode = null,
+    Object? locale = null,
   }) {
     return _then(_$AppStateImpl(
       themeMode: null == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as ThemeMode,
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as Locale,
     ));
   }
 }
@@ -297,14 +431,16 @@ class __$$AppStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppStateImpl implements _AppState {
-  const _$AppStateImpl({required this.themeMode});
+  const _$AppStateImpl({required this.themeMode, required this.locale});
 
   @override
   final ThemeMode themeMode;
+  @override
+  final Locale locale;
 
   @override
   String toString() {
-    return 'AppState(themeMode: $themeMode)';
+    return 'AppState(themeMode: $themeMode, locale: $locale)';
   }
 
   @override
@@ -313,11 +449,12 @@ class _$AppStateImpl implements _AppState {
         (other.runtimeType == runtimeType &&
             other is _$AppStateImpl &&
             (identical(other.themeMode, themeMode) ||
-                other.themeMode == themeMode));
+                other.themeMode == themeMode) &&
+            (identical(other.locale, locale) || other.locale == locale));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, themeMode);
+  int get hashCode => Object.hash(runtimeType, themeMode, locale);
 
   @JsonKey(ignore: true)
   @override
@@ -327,11 +464,14 @@ class _$AppStateImpl implements _AppState {
 }
 
 abstract class _AppState implements AppState {
-  const factory _AppState({required final ThemeMode themeMode}) =
-      _$AppStateImpl;
+  const factory _AppState(
+      {required final ThemeMode themeMode,
+      required final Locale locale}) = _$AppStateImpl;
 
   @override
   ThemeMode get themeMode;
+  @override
+  Locale get locale;
   @override
   @JsonKey(ignore: true)
   _$$AppStateImplCopyWith<_$AppStateImpl> get copyWith =>
