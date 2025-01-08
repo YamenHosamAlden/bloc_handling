@@ -11,16 +11,19 @@ class DarkThemeMode {
       AppThemeData.darkTheme,
     );
     const IconThemeData iconThemeData =
-        IconThemeData(color: AppColors.darkWhiteColor);
+        IconThemeData(color: AppColors.darkModeWhiteColor);
 
     return base.copyWith(
       brightness: Brightness.dark,
-      primaryColorDark: AppColors.darkPrimaryColor,
-      scaffoldBackgroundColor: AppColors.darkScaffoldBackgroundColor,
-      cardColor: AppColors.darkCardColor,
+      primaryColorDark: AppColors.darkModePrimaryColor,
+      scaffoldBackgroundColor: AppColors.darkModeScaffoldBackgroundColor,
+      cardTheme: const CardTheme(
+        color: AppColors.darkModeCardColor,
+        elevation: 3,
+      ),
       iconTheme: iconThemeData,
       colorScheme: const ColorScheme.dark(
-        primary: AppColors.darkPrimaryColor,
+        primary: AppColors.darkModePrimaryColor,
       ),
       badgeTheme: BadgeThemeData(
         backgroundColor: AppColors.mojoColor,
@@ -28,18 +31,19 @@ class DarkThemeMode {
         textStyle: textTheme.bodySmall,
       ),
       navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: AppColors.darkPrimaryColor,
-        indicatorColor: AppColors.darkWhiteColor,
+        backgroundColor: AppColors.darkModePrimaryColor,
+        indicatorColor: AppColors.darkModeWhiteColor,
         iconTheme: MaterialStateProperty.resolveWith<IconThemeData>(
           (states) {
             if (states.contains(MaterialState.selected)) {
-              return iconThemeData.copyWith(color: AppColors.darkPrimaryColor);
+              return iconThemeData.copyWith(
+                  color: AppColors.darkModePrimaryColor);
             }
             return iconThemeData;
           },
         ),
         labelTextStyle: MaterialStatePropertyAll(
-          textTheme.labelSmall?.copyWith(color: AppColors.darkWhiteColor),
+          textTheme.labelSmall?.copyWith(color: AppColors.darkModeWhiteColor),
         ),
       ),
       expansionTileTheme: const ExpansionTileThemeData(

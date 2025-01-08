@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myproject/app/theme/app_theme.dart';
+import 'package:myproject/core/constans/app_colors.dart';
 
 class TextThemeMode {
   static TextTheme buildTextTheme(
@@ -7,65 +8,110 @@ class TextThemeMode {
     AppThemeData appTheme,
   ) {
     return base.copyWith(
-      displayLarge: const TextStyle(
+      displayLarge: TextStyle(
         fontSize: 45,
         fontWeight: FontWeight.bold,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
       ),
-      displayMedium: const TextStyle(
+      displayMedium: TextStyle(
         fontSize: 40,
         fontWeight: FontWeight.w600,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
       ),
-      displaySmall: const TextStyle(
+      displaySmall: TextStyle(
         fontSize: 38,
         fontWeight: FontWeight.w400,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
       ),
-      headlineLarge: const TextStyle(
+      headlineLarge: TextStyle(
         fontSize: 35,
         fontWeight: FontWeight.w800,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
       ),
-      headlineMedium: const TextStyle(
+      headlineMedium: TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.w600,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
       ),
-      headlineSmall: const TextStyle(
+      headlineSmall: TextStyle(
         fontSize: 28,
         fontWeight: FontWeight.w400,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
       ),
-      titleLarge: const TextStyle(
+      titleLarge: TextStyle(
         fontSize: 25,
         fontWeight: FontWeight.bold,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
       ),
-      titleMedium: const TextStyle(
+      titleMedium: TextStyle(
         fontSize: 22,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
       ),
-      titleSmall: const TextStyle(
+      titleSmall: TextStyle(
         fontSize: 20,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w600,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
       ),
-      labelLarge: const TextStyle(
+      labelLarge: TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.bold,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
       ),
-      labelMedium: const TextStyle(
+      labelMedium: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w400,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
       ),
-      labelSmall: const TextStyle(
+      labelSmall: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.bold,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
       ),
-      bodyLarge: const TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.w500,
-      ),
-      bodyMedium: const TextStyle(
+      bodyLarge: TextStyle(
         fontSize: 16,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w800,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
       ),
-      bodySmall: const TextStyle(
+      bodyMedium: TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.w600,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
+      ),
+      bodySmall: TextStyle(
         fontSize: 10,
-        fontWeight: FontWeight.w200,
+        fontWeight: FontWeight.w400,
+        color: AppThemeData.darkTheme == appTheme
+            ? AppColors.darkModeWhiteColor
+            : AppColors.lightModeBlackColor,
       ),
     );
   }

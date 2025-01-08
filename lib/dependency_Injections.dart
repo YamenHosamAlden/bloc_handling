@@ -1,9 +1,9 @@
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:myproject/app/data/datasources/user_preferences_local_data_source.dart';
-import 'package:myproject/app/data/repositories/user_preferences_repository_impl.dart';
-import 'package:myproject/app/domain/repositories/user_preferences_repository.dart';
+import 'package:myproject/app/data/datasources/app_local_data_source.dart';
+import 'package:myproject/app/data/repositories/app_repository_impl.dart';
+import 'package:myproject/app/domain/repositories/app_repository.dart';
 import 'package:myproject/app/presentation/app_bloc/app_bloc.dart';
 import 'package:myproject/core/database/data_base_schema.dart';
 import 'package:myproject/core/database/local_database.dart';
@@ -78,8 +78,8 @@ void initRemoteDataSource() {
 }
 
 void initLocalDataSource() {
-  di.registerLazySingleton<UserPreferencesLocalDataSource>(
-    () => UserPreferencesLocalDataSourceImpl(
+  di.registerLazySingleton<AppLocalDataSource>(
+    () => AppLocalDataSourceImpl(
       sharedPreferences: di<SharedPreferences>(),
     ),
   );
@@ -99,9 +99,9 @@ void initRepositories() {
     ),
   );
 
-  di.registerLazySingleton<UserPreferencesRepository>(
-    () => UserPreferencesRepositoryImpl(
-      userPreferencesLocalDataSource: di<UserPreferencesLocalDataSource>(),
+  di.registerLazySingleton<AppRepository>(
+    () => AppRepositoryImpl(
+      appLocalDataSource: di<AppLocalDataSource>(),
     ),
   );
 }
@@ -109,7 +109,7 @@ void initRepositories() {
 void initBlocs() {
   di.registerFactory<AppBloc>(
     () => AppBloc(
-      userPreferencesRepository: di<UserPreferencesRepository>(),
+      appRepository: di<AppRepository>(),
     ),
   );
 

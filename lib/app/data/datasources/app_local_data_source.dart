@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:myproject/core/constans/app_string.dart';
 
-abstract interface class UserPreferencesLocalDataSource {
+abstract interface class AppLocalDataSource {
   Future<void> saveAppThemeMode();
   Future<void> removeAppThemeMode();
   bool get isAppThemeMode;
@@ -13,10 +13,9 @@ abstract interface class UserPreferencesLocalDataSource {
   String get appLanguage;
 }
 
-class UserPreferencesLocalDataSourceImpl
-    implements UserPreferencesLocalDataSource {
+class AppLocalDataSourceImpl implements AppLocalDataSource {
   final SharedPreferences sharedPreferences;
-  UserPreferencesLocalDataSourceImpl({required this.sharedPreferences});
+  AppLocalDataSourceImpl({required this.sharedPreferences});
 
   @override
   Future<void> saveAppThemeMode() async =>

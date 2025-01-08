@@ -1,1 +1,7 @@
-{}
+{
+    "home": "Home",
+    "categories": "Categories",
+    "search": "Search",
+    "cart": "Cart",
+    "settings": "Settings"
+}

@@ -12,15 +12,18 @@ class LightThemeMode {
       AppThemeData.lightTheme,
     );
     const IconThemeData iconThemeData =
-        IconThemeData(color: AppColors.lightWhiteColor);
+        IconThemeData(color: AppColors.lightModeWhiteColor);
 
     return base.copyWith(
       brightness: Brightness.light,
-      primaryColorLight: AppColors.lightPrimaryColor,
-      scaffoldBackgroundColor: AppColors.lightScaffoldBackgroundColor,
-      cardColor: AppColors.darkCardColor,
+      primaryColorLight: AppColors.lightModePrimaryColor,
+      scaffoldBackgroundColor: AppColors.lightModeScaffoldBackgroundColor,
+      cardTheme: const CardTheme(
+        color: AppColors.lightModeCardColor,
+        elevation: 3,
+      ),
       colorScheme:
-          const ColorScheme.light(primary: AppColors.lightPrimaryColor),
+          const ColorScheme.light(primary: AppColors.lightModePrimaryColor),
       iconTheme: iconThemeData,
       expansionTileTheme: const ExpansionTileThemeData(
         shape: Border(),
@@ -31,18 +34,18 @@ class LightThemeMode {
         textStyle: textTheme.bodySmall,
       ),
       navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: AppColors.lightPrimaryColor,
-        indicatorColor: AppColors.lightWhiteColor,
+        backgroundColor: AppColors.lightModePrimaryColor,
+        indicatorColor: AppColors.lightModeWhiteColor,
         iconTheme: MaterialStateProperty.resolveWith<IconThemeData>(
           (states) {
             if (states.contains(MaterialState.selected)) {
-              return iconThemeData.copyWith(color: AppColors.lightPrimaryColor);
+              return iconThemeData.copyWith(color: AppColors.lightModePrimaryColor);
             }
             return iconThemeData;
           },
         ),
         labelTextStyle: MaterialStatePropertyAll(
-          textTheme.labelSmall?.copyWith(color: AppColors.lightWhiteColor),
+          textTheme.labelSmall?.copyWith(color: AppColors.lightModeWhiteColor),
         ),
       ),
       textTheme: textTheme,

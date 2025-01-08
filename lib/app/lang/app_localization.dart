@@ -1,36 +1,54 @@
+import 'dart:async';
 import 'dart:convert';
-
+import 'package:intl/intl.dart' as intl;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:myproject/app/routers/routers.dart';
 
-class Applocalizations {
-  final Locale? locale;
 
-  Applocalizations({this.locale});
+class AppLocalizations {
+  final Locale locale;
 
-  static Applocalizations? of(BuildContext context) {
-    return Localizations.of<Applocalizations>(context, Applocalizations);
+  AppLocalizations(this.locale);
+
+  static AppLocalizations? of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static const LocalizationsDelegate<Applocalizations> delegate =
-      ApplocalizationsDelegate();
+  static bool isDirectionRTL(BuildContext context) {
+    return intl.Bidi.isRtlLanguage(
+        AppLocalizations.of(context)!.locale.languageCode);
+  }
 
-  late Map<String, String> localizedStrings;
+  static TextDirection getTextDirection(BuildContext context) {
+    return isDirectionRTL(context) ? TextDirection.ltr : TextDirection.rtl;
+  }
 
-  Future loadJsonLanguage() async {
-    String jsonString = await rootBundle
-        .loadString("assets/translations/${locale!.languageCode}.json");
+  static Locale getLocale(BuildContext context) =>
+      AppLocalizations.of(context)!.locale;
+
+  static const LocalizationsDelegate delegate = _AppLocalizatoinsDelegate();
+
+  late Map<String, String> _localizedStrings;
+
+  Future<bool> load() async {
+    String jsonString =
+        await rootBundle.loadString('assets/translations/${locale.languageCode}.json');
     Map<String, dynamic> jsonMap = json.decode(jsonString);
-    localizedStrings =
+
+    _localizedStrings =
         jsonMap.map((key, value) => MapEntry(key, value.toString()));
+
+    return true;
   }
 
-  String translate(String key) => localizedStrings[key] ?? "Undefined value";
+  String translate(String key) {
+    return _localizedStrings[key] ?? "Undefined value";
+  }
 }
 
-class ApplocalizationsDelegate extends LocalizationsDelegate<Applocalizations> {
-  const ApplocalizationsDelegate();
+class _AppLocalizatoinsDelegate
+    extends LocalizationsDelegate<AppLocalizations> {
+  const _AppLocalizatoinsDelegate();
 
   @override
   bool isSupported(Locale locale) {
@@ -38,20 +56,18 @@ class ApplocalizationsDelegate extends LocalizationsDelegate<Applocalizations> {
   }
 
   @override
-  Future<Applocalizations> load(Locale locale) async {
-    Applocalizations applocalizations = Applocalizations(locale: locale);
-    await applocalizations.loadJsonLanguage();
-    return applocalizations;
+  Future<AppLocalizations> load(Locale locale) async {
+    AppLocalizations localizations = AppLocalizations(locale);
+    await localizations.load();
+    return localizations;
   }
 
   @override
-  bool shouldReload(covariant LocalizationsDelegate<Applocalizations> old) =>
+  bool shouldReload(covariant LocalizationsDelegate<AppLocalizations> old) =>
       false;
 }
 
-extension Translate on String {
-  String get tr {
-    return Applocalizations.of(rootNavigatorKey.currentContext!)!
-        .translate(this);
-  }
+extension Localization on String {
+  String  tr(BuildContext context) =>
+      AppLocalizations.of(context)!.translate(this);
 }

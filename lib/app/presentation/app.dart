@@ -29,6 +29,7 @@ class AppView extends StatelessWidget {
           child: MaterialApp.router(
             routerConfig: appRouter,
             title: '',
+            
             themeMode: state.themeMode,
             theme: AppTheme.theme[AppThemeData.lightTheme],
             darkTheme: AppTheme.theme[AppThemeData.darkTheme],
@@ -38,7 +39,7 @@ class AppView extends StatelessWidget {
               Locale('ar'),
             ],
             localizationsDelegates: const [
-              Applocalizations.delegate,
+              AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,

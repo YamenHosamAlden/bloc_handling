@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract interface class UserPreferencesRepository {
+abstract interface class AppRepository {
   ThemeMode get getThemeMode;
   Locale get getLanguage;
   Future<ThemeMode> changeThemeMode(ThemeMode themeMode);

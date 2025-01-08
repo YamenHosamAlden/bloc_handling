@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   //light theme
-  static const Color lightPrimaryColor = Color(0xFF1769B3);
-  static const Color lightScaffoldBackgroundColor = Color(0xFFE6E6E6);
-  static const Color lightSchemeColor = Color(0xFF5070A6);
-  static const Color lightBlackColor = Color(0xFF333333);
-  static const Color lightWhiteColor = Color(0xFFF3F4F6);
-  static const Color lightGrayColor = Color(0xFFD9D7D7);
-  static const Color lightCardColor = Color(0xFFFCFCFC);
+  static const Color lightModePrimaryColor = Color(0xFF1769B3);
+  static const Color lightModeScaffoldBackgroundColor = Color(0xFFE6E6E6);
+
+  static const Color lightModeBlackColor = Color(0xFF333333);
+  static const Color lightModeWhiteColor = Color(0xFFF3F4F6);
+  static const Color lightModeGrayColor = Color(0xFFD9D7D7);
+  static const Color lightModeCardColor = Color(0xFFFCFCFC);
 
   //dark theme
 
-  static const Color darkPrimaryColor = Color(0xFF3B5699);
-  static const Color darkScaffoldBackgroundColor = Color(0xFF212121);
-  static const Color darkSchemeColor = Color(0xFF3B5699);
-  static const Color darkWhiteColor = Color(0xFFE6E5E5);
-  static const Color darkGrayColor = Color(0xFFA6A5A5);
-  static const Color darkCardColor = Color(0xFF333333);
+  static const Color darkModePrimaryColor = Color(0xFF3B5699);
+  static const Color darkModeScaffoldBackgroundColor = Color(0xFF212121);
+
+  static const Color darkModeWhiteColor = Color(0xFFE6E5E5);
+  static const Color darkModeGrayColor = Color(0xFFA6A5A5);
+  static const Color darkModeCardColor = Color(0xFF333333);
 
   //custom color
 

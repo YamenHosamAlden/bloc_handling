@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myproject/app/lang/app_localization.dart';
 
 class NavBarWidget extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
@@ -16,17 +17,17 @@ class NavBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return NavigationBar(
       destinations: [
-        const NavigationDestination(
-          icon: Icon(Icons.home),
-          label: 'Home',
+        NavigationDestination(
+          icon: const Icon(Icons.home),
+          label: 'home'.tr(context),
         ),
-        const NavigationDestination(
-          icon: Icon(Icons.category),
-          label: 'Categories',
+        NavigationDestination(
+          icon: const Icon(Icons.category),
+          label: 'categories'.tr(context),
         ),
-        const NavigationDestination(
-          icon: Icon(Icons.search),
-          label: 'Search',
+        NavigationDestination(
+          icon: const Icon(Icons.search),
+          label: 'search'.tr(context),
         ),
         NavigationDestination(
           icon: Badge.count(
@@ -35,11 +36,11 @@ class NavBarWidget extends StatelessWidget {
               Icons.shopping_cart,
             ),
           ),
-          label: 'Cart',
+          label: 'cart'.tr(context),
         ),
-        const NavigationDestination(
-          icon: Icon(Icons.settings),
-          label: 'Settings',
+        NavigationDestination(
+          icon: const Icon(Icons.settings),
+          label: 'settings'.tr(context),
         ),
       ],
       selectedIndex: navigationShell.currentIndex,
